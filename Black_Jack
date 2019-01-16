@@ -1,0 +1,10 @@
+import random
+class Card():
+  def __init__(self, value, color):
+    self.value = value
+    self.color = color
+colors = ['heart','diamond','spades','clubs']
+deck = [Card(value, color) for value in range(1,14) for color in colors]
+def player_hand(deck):
+  x = [random.choices(deck,k = 2)]
+  deck.pop([y for y in x])
