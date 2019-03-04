@@ -1,10 +1,28 @@
-import random
+from random import shuffle
+
+
 class Card():
-  def __init__(self, value, color):
-    self.value = value
-    self.color = color
-colors = ['heart','diamond','spades','clubs']
-deck = [Card(value, color) for value in range(1,14) for color in colors]
-def player_hand(deck):
-  x = [random.choices(deck,k = 2)]
-  deck.pop([y for y in x])
+    def __init__(self, value, suit):
+        self.value = value
+        self.suit = suit
+        self.both = self.value + ' of ' + self.suit
+
+
+suits = ['Spades', 'Hearts', 'Clubs', 'Diamonds']
+values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
+Deck = [Card(x, y).both for y in suits for x in values]
+
+
+def Draw(x):
+    print(x[0])
+    x.pop(0)
+
+
+class PlayerHand():
+    def __init__(self, Card1, Card2):
+        self.Card1 = Card1
+        self.Card2 = Card2
+
+    def Draw(x):
+        print(x[0])
+        x.pop(0)
